@@ -76,7 +76,7 @@
  boolean, number와 같이 네 가지 방법으로 선언 가능하며, 가급적이면 추론하도록 두는 것이 좋음.
 
 - symbol <br/>
-  객체와 맵에서 문자열 키를 대신하는 용도로 사용.
+  객체와 맵에서 문자열 키를 대신하는 용도로 사용. <br/>
   예시)
   ```
   let a = Symbol('a') // symbol
@@ -109,10 +109,38 @@
   ```
 
 - 배열 <br/>
-- 튜플 <br/>
-- null, undefined, void, never <br/>
-- 열거형(enum) <br/>
+T[ ], Array<T> 두가지 문법 지원
+   ```
+   let a:number [] = [1, 2, 3] 
+   let a: Array<number> = [1,2,3]
+   ```
 
+- 튜플 <br/>
+ 배열의 길이가 고정되고 각 요소의 타입이 지정되어 있는 배열 형식. <br/>
+ 선언할 때 타입 명시해야함.
+ 예시)
+  ```
+  let a: [string, string, number] = ['park', 'choi', 1993]
+  let friends: [string, ...string[]] = ['Sara', 'Tali', 'Chole', 'Claire']
+  ```
+ 
+- null, undefined, void, never <br/>
+  null: 값이 없음
+  undefined: 아직 값을 변수에 할당하지 않음
+  void: return문을 포함하지 않는 함수
+  never: 절대 반환하지 않는 함수 
+
+- 열거형(enum) <br/>
+ 해당 타입으로 사용할 수 있는 값을 열거
+ 예시) 
+ ```
+ enum Language {
+   English = 0,
+   Spanish = 1, 
+   Russian = 2
+ }
+ let a = Language.English // Language
+ ```
 <h3> 추가내용 </h3>
 
 - 타입별칭 <br/>
