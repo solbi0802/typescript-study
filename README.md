@@ -7,6 +7,8 @@
 
 ![image](https://user-images.githubusercontent.com/26318691/169843371-bbed1016-1c4c-4845-b3c4-e6b4da5ef829.png)
 
+<h3> 타입 </h3>
+
 - any <br/>
  타입검사기가 동작하지 않기 때문에 가급적 사용하지 않는게 좋다.
 
@@ -74,12 +76,54 @@
  boolean, number와 같이 네 가지 방법으로 선언 가능하며, 가급적이면 추론하도록 두는 것이 좋음.
 
 - symbol <br/>
-  
+  객체와 맵에서 문자열 키를 대신하는 용도로 사용.
+  예시)
+  ```
+  let a = Symbol('a') // symbol
+  let b: symbol = Symbnol('b') // symbol
+  var c = a === b // boolean
+  let d = a + 'x' // 에러 : '+' 연산 symbol 타입에 적용 x
+  ```
+  unique symbol
+  ```
+  const e = Symbol('e') // typeof e
+  const f: unique symbol = Symbol('f') // typeof f
+  let g: unique symbol = Symbol('f') // 에러 : unique symbol타입은 const여야 함
+  ```
+
 - object <br/>
-- 타입별칭 <br/>
-- 유니온 <br/>
-- 인터섹션 <br/>
+  객체 리터럴
+  ```
+  let a = {
+   b : 'x'
+  }  {b : string}
+  a.b // string 
+  
+  let a2: {b2: number } = {
+      b2: 12
+  } // {b: number} 
+  ```
+  object 타입 
+  ```
+  let person = {age: 20} 
+  ```
+
 - 배열 <br/>
 - 튜플 <br/>
 - null, undefined, void, never <br/>
 - 열거형(enum) <br/>
+
+<h3> 추가내용 </h3>
+
+- 타입별칭 <br/>
+ ```
+ type Age = number
+ type Person = {
+   name: string
+   age: Age
+ }
+ ```
+ * 하나의 타입을 두번 정의할 수 x
+
+- 유니온 <br/>
+- 인터섹션 <br/>
